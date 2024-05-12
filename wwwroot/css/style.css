@@ -43,7 +43,25 @@
 	min-height: 74px;
 }
 
+.pagination {
+	display: inline-block;
+}
 
+	.pagination a {
+		color: black;
+		float: left;
+		padding: 8px 16px;
+		text-decoration: none;
+	}
+
+		.pagination a.active {
+			background-color: #4CAF50;
+			color: white;
+		}
+
+		.pagination a:hover:not(.active) {
+			background-color: #ddd;
+		}
 /* Logo
 ------------------------------------*/
 #logo { margin-top: 20px; }
@@ -250,7 +268,7 @@
 }
 
 .sf-arrows .sf-with-ul:after {
-	content: "x";
+	content: "";
 	font-family: "FontAwesome";
 	font-size: 12px;
 	margin: 0 0 0 6px;
@@ -268,7 +286,7 @@
 	right: 9px;
 	top: 10px;
 	position: absolute;
-	content: "x";
+	content: "";
 }
 
 .sf-arrows ul li ul a:hover.sf-with-ul:after { color: #fff; }
@@ -320,14 +338,14 @@
 		font-family: "FontAwesome";
 		font-size: 21px;
 		position: absolute;
-		content: "x";
+		content: "";
 		right: 16px;
 		top: 12px;
 		color: #888;
 	}
 
 	.nav-toggle.active::before {
-		content: "x";
+		content: "";
 		color: #fff;
 	}
 
@@ -1166,7 +1184,7 @@ table.basic-table td {
 }
 
 #breadcrumbs ul li:after {
-	content: "x";
+	content: "";
 	font-family: "FontAwesome";
 	font-size: 12px;
 	color: #ccc;
@@ -1426,8 +1444,8 @@ a.button i { margin-right: 2px; }
 	line-height: 19px;
 }
 
-.pagination-next-prev .next:before { content: "x"; margin: 9px 0 0 14px;}
-.pagination-next-prev .prev:before { content: "x"; margin: 9px 0 0 12px; }
+.pagination-next-prev .next:before { content: ""; margin: 9px 0 0 14px;}
+.pagination-next-prev .prev:before { content: ""; margin: 9px 0 0 12px; }
 
 
 /* Custom Margins for Pages */
@@ -1836,7 +1854,7 @@ label input[type="file"] {
 }
 
 .chosen-container-single .chosen-single div b:after {
-	content: "x";
+	content: "";
 	font-family: "FontAwesome";
 	font-size: 12px;
 	margin: 0 8px 0 0;
@@ -1873,7 +1891,7 @@ label input[type="file"] {
 }
 
 .chosen-container-single .chosen-search:before {
-	content: "x";
+	content: "";
 	font-family: "FontAwesome";
 	font-size: 13px;
 	margin: 0 10px 0 0;
@@ -2020,7 +2038,7 @@ label input[type="file"] {
 }
 
 .chosen-container-multi .chosen-choices li.search-choice .search-choice-close:before {
-	content: "x";
+	content: "";
 	font-family: "FontAwesome";
 	font-size: 12px;
 	top: -1px;
@@ -2064,7 +2082,7 @@ label input[type="file"] {
 	background: transparent;
 }
 
-.chosen-container-active.chosen-with-drop .chosen-single div b:after { content: "x" }
+.chosen-container-active.chosen-with-drop .chosen-single div b:after { content: "" }
 .chosen-container-active .chosen-choices li.search-field input[type="text"] { color: #808080 !important; }
 
 
@@ -2834,7 +2852,7 @@ figure.image-left figcaption{
 .post-quote .icon:before {
 	font-family: "FontAwesome";
 	font-size: 28px;
-	content: "X";
+	content: "";
 	color: #d0d0d0;
 	position: relative;
 	height: 15px;
@@ -2874,7 +2892,7 @@ figure.image-left figcaption{
 .list-2 li:before,
 .list-3 li:before,
 .list-4 li:before {
-	content: "X";
+	content: "";
 	font-family: "FontAwesome";
 	margin: 0 10px 0 0;
 	position: relative;
@@ -2888,10 +2906,10 @@ figure.image-left figcaption{
 	color: #808080;
 }
 
-.list-1 li:before { content: "X"; }
-.list-2 li:before { content: "X"; font-size: 24px; top: 3px;}
-.list-3 li:before { content: "X"; }
-.list-4 li:before { content: "X"; }
+.list-1 li:before { content: ""; }
+.list-2 li:before { content: "•"; font-size: 24px; top: 3px;}
+.list-3 li:before { content: ""; }
+.list-4 li:before { content: ""; }
 
 
 /* Example Gallery */
@@ -3477,8 +3495,8 @@ a.blockTitle:hover { background: #808080; }
 	top: -3px;
 }
 
-.rsDefault.rsWithThumbsVer .rsThumbsArrowRight .rsThumbsArrowIcn:before { content: "X"; }
-.rsDefault.rsWithThumbsVer .rsThumbsArrowLeft .rsThumbsArrowIcn:before { content: "X"; }
+.rsDefault.rsWithThumbsVer .rsThumbsArrowRight .rsThumbsArrowIcn:before { content: ""; }
+.rsDefault.rsWithThumbsVer .rsThumbsArrowLeft .rsThumbsArrowIcn:before { content: ""; }
 
 
 .rsDefault .rsThumbsArrowDisabled { display: none !important; }
@@ -3566,7 +3584,7 @@ a.blockTitle:hover { background: #808080; }
 
 
 .rating .star-rating:after {
-	content:"X";
+	content:"    ";
 	font-family: "FontAwesome";
 	color: #ffc741;
 	display: block;
@@ -3577,7 +3595,7 @@ a.blockTitle:hover { background: #808080; }
 }
 
 .rating .star-bg:after {
-	content:"X";
+	content:"    ";
 	font-family: "FontAwesome";
 	color: #e0e0e0;
 	display: block;
@@ -3929,7 +3947,7 @@ ul.categories li a:hover span { color: #fff; }
 }
 
 .post-icon:before {
-	content: "X";
+	content: "";
 	font-family: "FontAwesome";
 	position: relative;
 	top: 7px;
@@ -4051,37 +4069,37 @@ ul.share-buttons li:hover .counted {
 
 /* Each Styles */
 .facebook-share { background-color: #3b5998; }
-.facebook-share:before { content: "X"; }
+.facebook-share:before { content: ""; }
 
 .twitter-share { background-color: #33bcf3; }
-.twitter-share:before { content: "X"; }
+.twitter-share:before { content: ""; }
 
 .google-plus-share { background-color: #dd4b39; }
-.google-plus-share:before { content: "X"; }
+.google-plus-share:before { content: ""; }
 
 .pinterest-share { background-color: #cc2127; }
-.pinterest-share:before { content: "X"; }
+.pinterest-share:before { content: ""; }
 
 .behance-share { background-color: #1769ff; }
-.behance-share:before { content: "X"; }
+.behance-share:before { content: ""; }
 
 .dribbble-share { background-color: #ea4c89; }
-.dribbble-share:before { content: "X"; }
+.dribbble-share:before { content: ""; }
 
 .instagram-share { background-color: #3f729b; }
-.instagram-share:before { content: "X"; }
+.instagram-share:before { content: ""; }
 
 .linkedin-share { background-color: #0976b4; }
-.linkedin-share:before { content: "X"; }
+.linkedin-share:before { content: ""; }
 
 .github-share { background-color: #4183c4; }
-.github-share:before { content: "X"; }
+.github-share:before { content: ""; }
 
 .youtube-share { background-color: #e52d27; }
-.youtube-share:before { content: "X"; }
+.youtube-share:before { content: ""; }
 
 .pinterest0share { background-color: #cc2127; }
-.pinterest-share:before { content: "X"; }
+.pinterest-share:before { content: ""; }
 
 
 
@@ -4134,7 +4152,7 @@ ul.share-post li a.rate-recipe {
 }
 
 .rate-recipe { background-color: #808080; }
-.rate-recipe:before { content: "X"; }
+.rate-recipe:before { content: ""; }
 
 
 /* Product Page
@@ -4355,13 +4373,13 @@ ul.share-post li a.rate-recipe {
 }
 
 .rate span.star:before {
-	content: "X";
+	content: "";
 	color: #e0e0e0;
 }
 
 .rate span.star:hover:before,
 .rate span.star:hover ~ span.star:before {
-	content: "X";
+	content: "";
 	color: #FFC741;
 }
 
@@ -4491,7 +4509,7 @@ ul.footer-links { margin: 0 0 15px 0; }
 .footer-links li:before {
 	font-family: "FontAwesome";
 	font-size: 12px;
-	content: "X";
+	content: "";
 	color: #fff;
 	position: relative;
 	left: 0;
@@ -4845,9 +4863,9 @@ a.cart-remove:hover {
 	color: #fff;
 }
 
-.qtyplus:before { content: "X"; }
-.qtyminus:before { content: "X"; }
-.cart-remove:before { content: "X"; }
+.qtyplus:before { content: ""; }
+.qtyminus:before { content: ""; }
+.cart-remove:before { content: ""; }
 
 .qtyplus:before,
 .qtyminus:before {
@@ -4872,7 +4890,7 @@ a.cart-remove:hover {
 }
 
 .linking a.button.adc:before {
-	content: "X";
+	content: "";
 	position: absolute;
 	font-family: "FontAwesome";
 	padding: 8px 15px 8px 12px;
@@ -5061,7 +5079,7 @@ button.mfp-arrow {
 }
 
 .mfp-close:before {
-	content: "X";
+	content: "";
 	font-family: "FontAwesome";
 	font-size: 16px;
 	top: 0;
@@ -5110,15 +5128,15 @@ button.mfp-arrow {
 
 .mfp-arrow.mfp-arrow-left,
 .mfp-arrow.mfp-arrow-right {
-	content: "X";
+	content: "";
 	font-family: "FontAwesome";
 	font-size: 16px;
 }
 
 .mfp-arrow.mfp-arrow-right { right: 0; }
 
-.mfp-arrow.mfp-arrow-left:before { content: "X"; top: 1px; left: -1px; position: relative; }
-.mfp-arrow.mfp-arrow-right:before { content: "X"; top: 1px; left: 1px; position: relative; }
+.mfp-arrow.mfp-arrow-left:before { content: ""; top: 1px; left: -1px; position: relative; }
+.mfp-arrow.mfp-arrow-right:before { content: ""; top: 1px; left: 1px; position: relative; }
 
 
 
@@ -5589,11 +5607,11 @@ img.mfp-img {
 	top: 9px;
 	left: 14px;
 	position: relative;
-	content: "X";
+	content: "";
 }
 
 .rsArrowRight .rsArrowIcn:before {
-	content: "X";
+	content: "";
 	top: 9px;
 	left: 15px;
 	position: relative;
@@ -5717,7 +5735,7 @@ a.print i { font-size: 14px; margin-right: 2px; }
 }
 
 .ingredients input[type=checkbox]:checked + label:before {
-	content: "X";
+	content: "";
 	font-family: "FontAwesome";
 	font-size: 13px;
 	color: #fff;
@@ -5993,11 +6011,11 @@ ol.directions > li:before {
 		top: 9px;
 		left: 14px;
 		position: relative;
-		content: "X";
+		content: "";
 	}
 
 	#slider-next:before {
-		content: "X";
+		content: "";
 		top: 9px;
 		left: 15px;
 		position: relative;

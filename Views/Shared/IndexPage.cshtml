@@ -1,4 +1,5 @@
-﻿@model Italian_Restaurant_1.ViewModels.RecipeCategoryViewModel
+﻿@model X.PagedList.IPagedList<Recipe>
+@using X.PagedList.Mvc.Core
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,12 @@
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/Italian_Restaurant.styles.css" asp-append-version="true" />
+	<script src="https://kit.fontawesome.com/82bbb3ea06.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/green.css" id="colors">
 </head>
-<body>
+
 	<!-- Header
 		================================================== -->
 	<header id="header">
@@ -34,7 +39,7 @@
 						<li><a href="https://www.youtube.com/">Home</a></li>
 
 						<li>
-							<a href="#" id="current">Demos</a>
+							<a href="#" id="current">Category</a>
 							<ul>
 								<li><a href="index.html">Grid Homepage</a></li>
 								<li><a href="index-2.html">List Homepage</a></li>
@@ -52,7 +57,7 @@
 						</li>
 
 						<li>
-							<a href="#">Pages</a>
+							<a href="#">Tips</a>
 							<ul>
 								<li><a href="shortcodes.html">Shortcodes</a></li>
 								<li><a href="typography.html">Typography</a></li>
@@ -61,14 +66,15 @@
 						</li>
 
 						<li>
-							<a href="#">Shop</a>
+							<a href="#">Submission</a>
 							<ul>
 								<li><a href="shop.html">Shop</a></li>
 								<li><a href="product-page.html">Product Page</a></li>
 							</ul>
 						</li>
 
-						<li><a href="submit-recipe.html">Submit Recipe</a></li>
+						<li><a href="submit-recipe.html">Contest</a></li>
+						<li><a href="#"> <i class="fa-solid fa-user"></i></a></li>
 					</ul>
 				</nav>
 
@@ -77,34 +83,7 @@
 		</div>
 		<!-- Container / End -->
 	</header>
-	<!DOCTYPE html>
-	<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-	<!--[if (gte IE 9)|!(IE)]>
 
-	<!-->
-	<html lang="en">
-	<!--<![endif]-->
-	<head>
-
-		<!-- Basic Page Needs
-		================================================== -->
-		<meta charset="utf-8">
-		<title>Chow</title>
-
-		<!-- Mobile Specific Metas
-		================================================== -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<!-- CSS
-		================================================== -->
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/green.css" id="colors">
-
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-
-	</head>
 
 	<body>
 
@@ -293,15 +272,15 @@
 
 					<!-- Isotope -->
 					<div class="list-style">
-						@foreach (var item in Model.Recipes )
+						@foreach (var item in Model)
 						{
 							<!-- Recipe #1 -->
 							<div class="four recipe-box columns">
 
 								<!-- Thumbnail -->
 								<div class="thumbnail-holder">
-									<a href="recipe-page-1.html">
-										<img src="images/recipeThumb-01b.jpg" alt="" />
+									<a asp-controller="Home" asp-action="RecipeDetail" asp-route-maSP="@item.RecipeId">
+										<img src="image/lasagna.webp" alt="" />
 										<div class="hover-cover"></div>
 										<div class="hover-icon">View Recipe</div>
 									</a>
@@ -319,37 +298,26 @@
 									</div>
 
 									<div class="meta-alignment">
-										<div class="recipe-meta"><i class="fa fa-user"></i> by <a href="#">Sandra Fortin</a></div>
-										<div class="recipe-meta"><i class="fa fa-clock-o"></i> 30 min</div>
-										<div class="recipe-meta"><i class="fa fa-cutlery"></i> 4 servings</div>
+										<div class="recipe-meta"><i class="fa fa-user"></i> by <a href="#">@item.UserId</a></div>
+										<div class="recipe-meta"><i class="fa fa-clock-o"></i> @item.RecipeRole</div>
+										<div class="recipe-meta"><i class="fa fa-cutlery"></i> @item.Category</div>
 									</div>
 
 									<div class="clearfix"></div>
 								</div>
 							</div>
+							
 						}
+						
 					</div>
-
+					
 					<div class="clearfix"></div>
-
+					
 					<!-- Pagination -->
-					<div class="pagination-container masonry">
-						<nav class="pagination">
-							<ul>
-								<li><a href="#" class="current-page">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-							</ul>
-						</nav>
-
-						<nav class="pagination-next-prev">
-							<ul>
-								<li><a href="#" class="prev"></a></li>
-								<li><a href="#" class="next"></a></li>
-							</ul>
-						</nav>
+					<div class="pagination">
+						@Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
 					</div>
-
+					
 				</div>
 
 
@@ -374,12 +342,12 @@
 						<h4 class="headline">Categories</h4>
 						<span class="line margin-bottom-20"></span>
 						<div class="clearfix"></div>
-						@foreach (var item in Model.Categories)
+						@* @foreach (var item in Model.Categories)
 						{
 							<ul class="categories">
 								<li><a href="#"> <span>@item.CatName</span></a></li>
 							</ul>
-						}
+						} *@
 					</div>
 
 
@@ -549,7 +517,8 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-
+<body>
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

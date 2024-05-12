@@ -6,5 +6,6 @@ namespace Italian_Restaurant_1.ViewModels
     {
         public List<Recipe> Recipes { get; set; }
         public List<Category> Categories { get; set; }
-    }
+
+	}
 }

@@ -1,7 +1,10 @@
 using Italian_Restaurant_1.Models;
 using Italian_Restaurant_1.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Diagnostics;
+using X.PagedList;
 
 namespace Italian_Restaurant_1.Controllers
 {
@@ -14,17 +17,28 @@ namespace Italian_Restaurant_1.Controllers
 			_logger = logger;
 		}
         ItalyContext db = new ItalyContext();
-        public IActionResult Index()
+        public IActionResult Index(int? page)
 		{
-			var ListRecipe = db.Recipes.ToList();
-			var ListCategory = db.Categories.ToList();
-			var viewModel = new RecipeCategoryViewModel
-			{
-				Recipes = ListRecipe,
-				Categories = ListCategory
-			};
-			return View(viewModel);
+			int pageSize = 1;
+			int pageNumber = page == null || page < 0 ? 1 : page.Value;
+			var ListRecipe = db.Recipes.AsNoTracking().OrderBy(x => x.RecipeName);
+			PagedList < Recipe > lst = new PagedList<Recipe>(ListRecipe, pageNumber, pageSize); 
+			//var ListCategory = db.Categories.ToList();
+			//var viewModel = new RecipeCategoryViewModel
+			//{
+			//	Recipes = ListRecipe,
+			//	Categories = ListCategory
+			//};
+			return View(lst);
 		
+		}
+
+		public IActionResult RecipeDetail(int maSp)
+		{
+			var Recipe = db.Recipes.SingleOrDefault(x => x.RecipeId == maSp); 
+			var img = db.Recipes.Where(x => x.RecipeId == maSp).ToList(); 
+			ViewBag.img = img;
+			return View(Recipe);
 		}
 
 		public IActionResult Privacy()

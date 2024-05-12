@@ -250,3 +250,7 @@ C:\Users\Admin\source\repos\Italian Restaurant 1\Italian Restaurant 1\bin\Debug\
 C:\Users\Admin\source\repos\Italian Restaurant 1\Italian Restaurant 1\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\Users\Admin\source\repos\Italian Restaurant 1\Italian Restaurant 1\obj\Debug\net8.0\Italian Restaurant 1.csproj.AssemblyReference.cache
 C:\Users\Admin\source\repos\Italian Restaurant 1\Italian Restaurant 1\obj\Debug\net8.0\Italian .87BD08F8.Up2Date
+C:\Users\Admin\source\repos\Italian Restaurant 1\Italian Restaurant 1\obj\Debug\net8.0\Italian Restaurant 1.sourcelink.json
+C:\Users\Admin\source\repos\Italian Restaurant 1\Italian Restaurant 1\obj\Debug\net8.0\Italian Restaurant 1.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Admin\source\repos\Italian Restaurant 1\Italian Restaurant 1\bin\Debug\net8.0\X.PagedList.dll
+C:\Users\Admin\source\repos\Italian Restaurant 1\Italian Restaurant 1\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll

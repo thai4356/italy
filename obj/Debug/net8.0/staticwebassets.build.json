@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mnHIpZUcGyu/78FGUdYdx6iOFc4J+H6sj7qrSjGplGk=",
+  "Hash": "bmkEArOEouJaewkh2eO+jQyJSE+buuGr0FkI4hZtPwM=",
   "Source": "Italian Restaurant 1",
   "BasePath": "_content/Italian Restaurant 1",
   "Mode": "Default",
@@ -262,6 +262,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Image\\featuredRecipe-03.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Italian Restaurant 1\\Italian Restaurant 1\\wwwroot\\Image\\lasagna.webp",
+      "SourceId": "Italian Restaurant 1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Italian Restaurant 1\\Italian Restaurant 1\\wwwroot\\",
+      "BasePath": "_content/Italian Restaurant 1",
+      "RelativePath": "Image/lasagna.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Image\\lasagna.webp"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\Italian Restaurant 1\\Italian Restaurant 1\\wwwroot\\Image\\logo.png",
