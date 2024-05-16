@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Italian_Restaurant_1.Models;
 
 public partial class User
 {
     public int UserId { get; set; }
-
     public string? Username { get; set; }
 
     public string? Pass { get; set; }

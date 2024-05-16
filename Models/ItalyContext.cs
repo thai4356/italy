@@ -241,7 +241,7 @@ public partial class ItalyContext : DbContext
         {
             entity.HasKey(e => e.UserId).HasName("PK__User__1788CC4C73616E0E");
 
-            entity.ToTable("User");
+            entity.ToTable("Users");
 
             entity.Property(e => e.Gmail)
                 .HasMaxLength(255)

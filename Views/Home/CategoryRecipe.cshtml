@@ -1,0 +1,364 @@
+﻿@model List<Recipe>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+	<script src="https://kit.fontawesome.com/82bbb3ea06.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="~/css/style.css">
+	<link rel="stylesheet" href="~/css/green.css">
+</head>
+
+<!-- Header
+	================================================== -->
+<header id="header">
+
+	<!-- Container -->
+	<div class="container">
+
+		<!-- Logo / Mobile Menu -->
+		<div class="three columns">
+			<div id="logo">
+				<h1><a href="index.html"><img src="~/Image/logo.png" alt="Chow" /></a></h1>
+			</div>
+		</div>
+
+
+		<!-- Navigation
+		================================================== -->
+		<div class="thirteen columns navigation">
+
+			<nav id="navigation" class="menu nav-collapse">
+				<ul>
+					<li>
+						<a asp-controller="Home" asp-action="Index">Home</a>
+					</li>
+
+					<li>
+						<a  id="current">Category</a>
+						<ul>
+							<li>@await Component.InvokeAsync("Category")</li>
+						</ul>
+					</li>
+
+
+					<li>
+						<a href="#">Tips</a>
+						<ul>
+							<@* ---- *@
+						</ul>
+					</li>
+
+					<li>
+						<a href="#">Submission</a>
+						<ul>
+							@* ---- *@
+						</ul>
+					</li>
+
+					<li><a href="submit-recipe.html">Contest</a></li>
+					<li><a href="../Views/Shared/UserUpdate.cshtml"> <i class="fa-solid fa-user"></i></a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+	</div>
+	<!-- Container / End -->
+</header>
+
+
+
+<!-- Wrapper -->
+<div id="wrapper">
+	<!-- Slider
+	================================================== -->
+
+	<div id="homeSlider" class="royalSlider rsDefaultInv" style="width:100%">
+		@foreach (var item in Model)
+		{
+			<!-- Slide #1 -->
+			<div class="rsContent">
+				<a class="rsImg" href="~/image/lasagna.webp"></a>
+				<i class="rsTmb">@item.RecipeName</i>
+
+				<!-- Slide Caption -->
+				<div class="SlideTitleContainer rsABlock">
+					<div class="CaptionAlignment">
+						<div class="rsSlideTitle tags">
+							<ul>
+								<li>@item.RecipeName</li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+
+						<h2 class="rsSlideTitle title"><a href="recipe-page-1.html">@item.RecipeName</a></h2>
+
+						<div class="rsSlideTitle details">
+							<ul>
+								<li><i class="fa fa-cutlery"></i> @item.RecipeName</li>
+								<li><i class="fa fa-clock-o"></i>@item.RecipeName</li>
+								<li><i class="fa fa-user"></i> @item.RecipeName<a href="#">@item.RecipeName</a></li>
+							</ul>
+						</div>
+
+						<a href="recipe-page-1.html" class="rsSlideTitle button">View Recipe</a>
+					</div>
+				</div>
+
+			</div>
+
+		}
+	</div>
+
+	<!-- Content
+	================================================== -->
+	<div class="container">
+
+		<!-- Masonry -->
+		<div class="twelve columns ">
+
+			<!-- Headline -->
+			<h3 class="headline">Latest Recipes</h3>
+			<span class="line rb margin-bottom-35"></span>
+			<div class="clearfix"></div>
+
+			<!-- Isotope -->
+			<div class="list-style">
+				@foreach (var item in Model)
+				{
+					<!-- Recipe #1 -->
+					<div class="four recipe-box columns">
+
+						<!-- Thumbnail -->
+						<div class="thumbnail-holder">
+							<a asp-controller="Home" asp-action="RecipeDetail" asp-route-maSP="@item.RecipeId">
+								<img src="~/image/lasagna.webp" alt="" />
+								<div class="hover-cover"></div>
+								<div class="hover-icon">View Recipe</div>
+							</a>
+						</div>
+
+						<!-- Content -->
+						<div class="recipe-box-content">
+							<h3><a asp-controller="Home" asp-action="RecipeDetail" asp-route-maSP="@item.RecipeId">@item.RecipeName</a></h3>
+
+							<p>@item.Description</p>
+
+							<div class="rating five-stars">
+								<div class="star-rating"></div>
+								<div class="star-bg"></div>
+							</div>
+
+							<div class="meta-alignment">
+								<div class="recipe-meta"><i class="fa fa-user"></i> by <a href="#">@item.UserId</a></div>
+								<div class="recipe-meta"><i class="fa fa-clock-o"></i> @item.RecipeRole</div>
+								<div class="recipe-meta"><i class="fa fa-cutlery"></i> @item.Category</div>
+							</div>
+
+							<div class="clearfix"></div>
+						</div>
+					</div>
+
+				}
+
+			</div>
+
+			<div class="clearfix"></div>
+
+			<!-- Pagination -->
+		</div>
+
+
+		<!-- Sidebar
+		================================================== -->
+		<div class="four columns">
+
+			<!-- Search Form -->
+			<div class="widget search-form">
+				<nav class="search">
+					<form action="#" method="get">
+						<button><i class="fa fa-search"></i></button>
+						<input class="search-field" type="text" placeholder="Search for recipes" value="" />
+					</form>
+				</nav>
+				<div class="clearfix"></div>
+			</div>
+
+
+			<!-- Categories -->
+			<div class="widget">
+				<h4 class="headline">Categories</h4>
+				<br />
+				<ul class="categories">
+					<li>@await Component.InvokeAsync("Category")</li>
+				</ul>
+				
+				<div class="clearfix"></div>
+			</div>
+
+			<!-- Popular Recipes -->
+			<div class="widget">
+				<h4 class="headline">Share</h4>
+				<span class="line margin-bottom-30"></span>
+				<div class="clearfix"></div>
+
+				<ul class="share-buttons">
+					<li class="facebook-share">
+						<a href="#">
+							<span class="counter">1,234</span>
+							<span class="counted">Fans</span>
+							<span class="action-button">Like</span>
+						</a>
+					</li>
+
+					<li class="twitter-share">
+						<a href="#">
+							<span class="counter">863</span>
+							<span class="counted">Followers</span>
+							<span class="action-button">Follow</span>
+						</a>
+					</li>
+
+					<li class="google-plus-share">
+						<a href="#">
+							<span class="counter">902</span>
+							<span class="counted">Followers</span>
+							<span class="action-button">Follow</span>
+						</a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+
+		</div>
+
+
+	</div>
+	<!-- Container / End -->
+
+	<div class="margin-top-5"></div>
+
+
+</div>
+<!-- Wrapper / End -->
+<!-- Footer
+================================================== -->
+<div id="footer">
+
+	<!-- Container -->
+	<div class="container">
+
+		<div class="five columns">
+			<!-- Headline -->
+			<h3 class="headline footer">About</h3>
+			<span class="line"></span>
+			<div class="clearfix"></div>
+			<p>Cras at ultrices erat, sed vulputate eros. Nunc at augue gravida est fermentum vulputate. Pellentesque et ipsum in dui malesuada tempus.</p>
+		</div>
+
+		<div class="three columns">
+
+			<!-- Headline -->
+			<h3 class="headline footer">Archives</h3>
+			<span class="line"></span>
+			<div class="clearfix"></div>
+
+			<ul class="footer-links">
+				<li><a href="#">June 2014</a></li>
+				<li><a href="#">July 2014</a></li>
+				<li><a href="#">August 2014</a></li>
+				<li><a href="#">September 2014</a></li>
+				<li><a href="#">November 2014</a></li>
+			</ul>
+
+		</div>
+
+		<div class="three columns">
+
+			<!-- Headline -->
+			<h3 class="headline footer">Recipes</h3>
+			<span class="line"></span>
+			<div class="clearfix"></div>
+
+			<ul class="footer-links">
+				<li><a href="browse-recipes.html">Browse Recipes</a></li>
+				<li><a href="recipe-page-1.html">Recipe Page</a></li>
+				<li><a href="submit-recipe.html">Submit Recipe</a></li>
+			</ul>
+
+		</div>
+
+		<div class="five columns">
+
+			<!-- Headline -->
+			<h3 class="headline footer">Newsletter</h3>
+			<span class="line"></span>
+			<div class="clearfix"></div>
+			<p>Sign up to receive email updates on new product announcements, gift ideas, sales and more.</p>
+
+			<form action="#" method="get">
+				<input class="newsletter" type="text" placeholder="mail@example.com" value="" />
+				<button class="newsletter-btn" type="submit">Subscribe</button>
+
+			</form>
+		</div>
+
+	</div>
+	<!-- Container / End -->
+
+</div>
+<!-- Footer / End -->
+<!-- Footer Bottom / Start -->
+<div id="footer-bottom">
+
+	<!-- Container -->
+	<div class="container">
+
+		<div class="eight columns">© Copyright 2014 by <a href="#">Chow</a>. All Rights Reserved.</div>
+
+	</div>
+	<!-- Container / End -->
+
+</div>
+<!-- Footer Bottom / End -->
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+
+
+
+<!-- Java Script
+================================================== -->
+<script src="~/js/jquery-1.11.0.min.js"></script>
+<script src="~/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="~/js/jquery.superfish.js"></script>
+<script src="~/js/jquery.royalslider.min.js"></script>
+<script src="~/js/responsive-nav.js"></script>
+<script src="~/js/hoverIntent.js"></script>
+<script src="~/js/isotope.pkgd.min.js"></script>
+<script src="~/js/chosen.jquery.min.js"></script>
+<script src="~/js/jquery.tooltips.min.js"></script>
+<script src="~/js/jquery.magnific-popup.min.js"></script>
+<script src="~/js/jquery.pricefilter.js"></script>
+<script src="~/js/custom.js"></script>
+
+
+
+
+
+
+</html>
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+
+</html>

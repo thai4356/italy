@@ -18,8 +18,11 @@ public partial class Recipe
     public string? Material { get; set; }
 
     public string? Description { get; set; }
+	public int? Calories { get; set; }
+	public int? CookDuration { get; set; }
+	public int? preparationTime { get; set; }
 
-    public virtual Category? CategoryNavigation { get; set; }
+	public virtual Category? CategoryNavigation { get; set; }
 
     public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
